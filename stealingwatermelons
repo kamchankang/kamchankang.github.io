@@ -11,6 +11,11 @@
 <body>
 
 <canvas id="myCanvas" width="300" height="500"></canvas>
+<button class="click_and_hold">
+</button>
+<div id="counter">0</div>
+
+
 
 <script>
 	// canvas info
@@ -74,6 +79,47 @@
 		drawBall();
 		ballMoveLeft();
 	}
+	
+	/////////////////////////////////
+	var currentAdjustment = null;
+var val = 0;
+
+var beginAdjust = function(amount) {
+    currentAdjustment = amount;
+    setTimeout(checkAdjust, 100);
+};
+
+var checkAdjust = function() {
+    if (currentAdjustment !== null) {
+        makeAdjustment(currentAdjustment);
+        setTimeout(checkAdjust, 100);
+    }
+};
+
+var makeAdjustment = function(amt) {
+    val += amt;
+    $('#counter').text(val);
+};
+
+$('.click_and_hold').mousedown(function(e) {
+    beginAdjust(10);
+}).mouseleave(function() {
+    currentAdjustment = null;
+}).mouseup(function() {
+    currentAdjustment = null;
+}).click(function(e) {
+    makeAdjustment(10);
+});
+	
+	
+	
+	
+	
+	
+	//////////////////////////////////////
+
+	
+	
 	// move the ball upward of down pressed
 	function ballMoveUp() {
 		if (leftHide == false && rightHide == false) {
