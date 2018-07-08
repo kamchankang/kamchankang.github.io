@@ -6,8 +6,8 @@
     <style>
     	* { padding: 0; margin: 0; }
     	canvas { background: #eee; display: block; margin: 0 auto; }
-	<link rel="stylesheet" href="http://kamchankang.github.io/gamestyle.css">
     </style>
+    <link rel="stylesheet" href="http://kamchankang.github.io/gamestyle.css">
 </head>
 <body>
 
